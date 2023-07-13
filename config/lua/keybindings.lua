@@ -38,3 +38,4 @@ map("n", "<M-h>", ':BufferMovePrevious<ENTER>', default_opts) -- ALT + H: switch
 --	Other
 map("n", "<C-w>", ':BufferClose<ENTER>', default_opts) -- Control+w will close current buffer
 map("n", "<M-w>", ':BufferRestore<ENTER>', default_opts) -- ALT+W: Restore tab 
+
