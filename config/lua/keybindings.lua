@@ -7,24 +7,29 @@ map("n", ";t", ":let VIM_DIR=expand('%:p:h') <ENTER> :split<ENTER> <C-w>j :termi
 map("t", "<ESC>", "<C-\\><C-n>", default_opts) -- Escape terminal mode
 
 
+--[[ WINDOWS vs TABs. Currently using tabs, so there will be overlap in keybindings, therefore commented out
 -- Window management
 --	Vertical split, left right movement
-map("n", "<C-l>", '<C-w>l', default_opts) -- Focus right window
-map("n", "<C-h>", '<C-w>h', default_opts) -- Focus left window
+map("n", "<M-l>", '<C-w>l', default_opts) -- Focus right window
+map("n", "<M-h>", '<C-w>h', default_opts) -- Focus left window
 
-map("n", "<SPACE>l", ':vsplit<ENTER>', default_opts) -- In normal mode, space+l makes a new verticle window to the left
-map("n", "<SPACE>h", ':vsplit<ENTER> <C-w>l', default_opts) -- In normal mode, space+h makes a new verticle window to the left 
+map("n", "<C-M-l>", ':vsplit<ENTER>', default_opts) -- In normal mode, CONTROL+ALT+L makes a new verticle window to the left
+map("n", "<C-M-H>", ':vsplit<ENTER> <C-w>l', default_opts) -- In normal mode, CONTROL+ALT+h makes a new verticle window to the left 
 
 --	Horizontal split, up down movement
-map("n", "<C-k>", '<C-w>k', default_opts) -- Focus top window
-map("n", "<C-j>", '<C-w>j', default_opts) -- Focus bottom window
+map("n", "<M-k>", '<C-w>k', default_opts) -- Focus top window
+map("n", "<M-j>", '<C-w>j', default_opts) -- Focus bottom window
 
-map("n", "<SPACE>k", ':split<ENTER> <C-w>j', default_opts) -- In normal mode, space+k makes a new horizontal window above 
-map("n", "<SPACE>j", ':split<ENTER>', default_opts) -- In normal mode, space+j makes a new verticle window below
+map("n", "<C-M-K>", ':split<ENTER> <C-w>j', default_opts) -- In normal mode, CONTROL+ALT+k makes a new horizontal window above 
+map("n", "<C-M-j>", ':split<ENTER>', default_opts) -- In normal mode, CONTROL+ALTj makes a new verticle window below
+--]]
 
 --	Tabs
-map("n", "<C-t>", ':tabnew<ENTER>', default_opts)
+map("n", "<C-t>", ':tabnew<ENTER>', default_opts) -- CONTROL+T: New tab
+map("n", "<C-l>", ':BufferNext<ENTER>', default_opts) -- CONTROL+l: go right 
+map("n", "<C-h>", ':BufferPrevious<ENTER>', default_opts) -- CONTROL+h: go left 
+map("n", "<M-l>", ':BufferMoveNext<ENTER>', default_opts) -- ALT + L: switch tabs with right 
+map("n", "<M-h>", ':BufferMovePrevious<ENTER>', default_opts) -- ALT + H: switch tabs with left 
 
 --	Other
-map("n", "<C-w>", ':wq<ENTER>', default_opts) -- Control+w will save and close current file
-map("n", "<C-q>", ":q<ENTER>", default_opts) -- Quits window
+map("n", "<C-w>", ':BufferClose<ENTER>', default_opts) -- Control+w will close current buffer
