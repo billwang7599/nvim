@@ -2,9 +2,9 @@ local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
 map("n", "<SPACE>t", ':NvimTreeToggle<ENTER>', default_opts) -- In normal mode, space+t toggles tree
-map("n", ";t", ":let VIM_DIR=expand('%:p:h') <ENTER> :split<ENTER> <C-w>j :terminal<ENTER> cd $VIM_DIR <ENTER> <C-\\><C-n> <C-w>k", default_opts) -- Make new terminal at the bottom
+map("n", ";t", ":term<ENTER>", default_opts) -- Make new terminal at the bottom
+map("t", "<M-s>", ":pwd|pbcopy<CR><C-\\><C-n><ENTER>:cd <C-r>+<CR>", default_opts)
 map("t", "<ESC>", "<C-\\><C-n>", default_opts) -- Escape terminal mode
-
 
 --[[ WINDOWS vs TABs. Currently using tabs, so there will be overlap in keybindings, therefore commented out
 -- Window management
@@ -36,6 +36,7 @@ map("n", "<M-h>", ':BufferMovePrevious<ENTER>', default_opts) -- ALT + H: switch
 
 --	Other
 map("n", "<C-w>", ':BufferClose<ENTER>', default_opts) -- Control+w will close current buffer
+map("n", "<C-q>", ':q!<ENTER>', default_opts) -- Control+w will close current buffer
 map("n", "<M-w>", ':BufferRestore<ENTER>', default_opts) -- ALT+W: Restore tab 
-map("n", "C-;", ':w<ENTER>', default_opts) -- saves current file
-map("n", "M-;", ':wall<ENTER>', default_opts) -- saves all file
+map("n", "<SPACE>w", ':w<ENTER>', default_opts) -- saves current file
+--map("t", "<C-w>", ':q!<ENTER>', default_opts) -- Leaves terminal window
