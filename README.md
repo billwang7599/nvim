@@ -15,7 +15,10 @@ Include the follow in ```.bashrc``` file.
 ```shell
 PATH="$(pwd)/whatever/path/to/pvim:$PATH" # usually the path is /.config/pvim
 ```
-
+Afterwards, run
+```shell
+source .bashrc
+```
 ## Sources
 
  - [Neovim](https://neovim.io)
